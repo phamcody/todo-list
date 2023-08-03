@@ -21,3 +21,9 @@ yet, I failed to do that and will make sure to conciously NOT
 do it again on my next project.
 
 I might go back to this project later and redo it entirely or I might redo the entire project right now if I can't figure it out.
+
+8/2/23 NOTES
+
+I'm starting to have a way better grasp and understanding of OOP and how they work with eachother. I've been slacking a little bit with the code however. I need to work on the SOLID principles, especially the Single Responsibility one as my code in the task() object rely on eachother in each method.
+
+I'm most excited for finally having that "A-HA" moment with objects and arrays and how I am able to dynamically manipulate them. I'm aiming to finish this project today.

@@ -1,5 +1,6 @@
-import addProjectDOM from "./addProjectDOM";
+import selectProject from "./selectProject";
 import addProjectFormDOM from "./addProjectForm";
+import task from "./task";
 
 
 export default function createWebsite(projects) {
@@ -40,10 +41,14 @@ export default function createWebsite(projects) {
 
     let allButton = document.createElement('button');
     allButton.textContent = 'All';
+    allButton.setAttribute('id', 'selected');
+    allButton.classList.add('choice');
     let todayButton = document.createElement('button');
     todayButton.textContent = 'Today';
+    todayButton.classList.add('choice');
     let highPriorityButton = document.createElement('button');
     highPriorityButton.textContent = 'High Priority';
+    highPriorityButton.classList.add('choice');
     allButton.classList.add('top-nav-buttons');
     todayButton.classList.add('top-nav-buttons');
     highPriorityButton.classList.add('top-nav-buttons');
@@ -85,7 +90,7 @@ export default function createWebsite(projects) {
 
     let contentHeader = document.createElement('div');
     contentHeader.classList.add('content-header');
-    contentHeader.textContent = 'Index';
+    contentHeader.textContent = 'All';
     topContentContainer.appendChild(contentHeader);
 
     let contentButton = document.createElement('button');
@@ -96,6 +101,7 @@ export default function createWebsite(projects) {
     let bottomContentContainer = document.createElement('div');
     bottomContentContainer.classList.add('bottom-content-container');
 
+
     contentContainer.appendChild(topContentContainer);
     contentContainer.appendChild(bottomContentContainer);
 
@@ -104,6 +110,24 @@ export default function createWebsite(projects) {
     mainContainer.appendChild(contentContainer);
     navigationContainer.appendChild(topNavContainer);
     navigationContainer.appendChild(bottomNavContainer);
+
+    selectProject(projects);
+
+    contentButton.addEventListener('click', () => {
+        task().createTaskForm();
+        contentButton.disabled = true;
+
+        task().add(projects);
+
+
+    });
+
+
+
+    /*
+
+
+    */
 
 
     // footer

@@ -1,6 +1,7 @@
 import addProjectToLibrary from "../todo-list/addProjectToLibrary";
+import selectProject from "./selectProject";
 export default function addProjectFormDOM(bottomNavContainer, addProjectButton, projects, containerForProjects) {
-    
+
     let projectFormContainer = document.createElement('div');
     projectFormContainer.classList.add('project-form-container');
     let form = document.createElement('form');
@@ -24,5 +25,8 @@ export default function addProjectFormDOM(bottomNavContainer, addProjectButton, 
         addProjectToLibrary(projects, titleInput.value, containerForProjects);
         addProjectButton.removeAttribute('disabled');
         bottomNavContainer.removeChild(projectFormContainer);
-    })
+        selectProject(projects);
+    });
+
+    
 }

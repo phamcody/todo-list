@@ -1,5 +1,7 @@
 * {
     margin: 0;
+    font-family: 'JelleeBold';
+    font-weight: normal;
 }
 
 html {
@@ -94,6 +96,12 @@ body {
     border-radius: 10px;
 }
 
+#selected {
+    color: #1c8a06;
+    background-color: #b0e6aa;
+    border-radius: 10px;
+}
+
 .bottom-nav-container {
     display: flex;
     flex-direction: column;
@@ -114,7 +122,7 @@ body {
     display: flex;
     justify-content: space-between;
     width: 90%;
-    height: 100%;
+    height: 45px;
 }
 
 .container-for-projects {
@@ -143,13 +151,13 @@ body {
     color: #353535;
     font-family: 'JelleeBold';
     font-weight: normal;
-    border-color: #e1fd84;
     border-radius: 20px;
-    box-shadow: 2px 2px 5px #b2c76e;
     font-style: normal;
     width: 90%;
     height: 10%;
     background-color: #def1a0;
+    box-shadow: 2px 2px 5px #b2c76e;
+    border-color: #e1fd84;
 }
 
 /* CONTENT SECTION */
@@ -196,6 +204,7 @@ body {
 .bottom-content-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
     margin-top: 3%;
 }
 
@@ -236,5 +245,99 @@ body {
     color: white;
 }
 
+/* TASK FORM */
+
+#task-form-container,
+.tasks-container {
+    height: 80%;
+    width: 80%;
+    background-color: #dae4da;
+    border-radius: 40px;
+    box-shadow: 7px 7px 15px #c2cec2;
+    
+}
+
+.task-form {
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.form-container-input {
+    display: grid;
+}
+
+label {
+    text-align: center;
+    font-family: 'JelleeBold';
+    font-weight: normal;
+    font-size: .75rem;
+    color: #b0c7ae;
+    align-self: end;
+    padding-bottom: 5%;
+}
+
+.task-title,
+.notes,
+.priority,
+.date {
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-add {
+    height: 60%;
+    align-self: center;
+    width: 60%;
+    border-radius: 10px;
+    background-color: #def1a0;
+    box-shadow: 2px 2px 5px #b2c76e;
+    border-color: #e1fd84;
+    color: #353535;
+}
+
+.tasks-container {
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    place-items: center;
+}
+
+.top-task-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+}
+
+
+
+.tasks-title {
+    grid-column: 3;
+    font-size: 1rem;
+}
+
+.delete-button {
+    grid-column: 5;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    place-self: center;
+    color: white;
+    background-color: rgb(255, 88, 88);
+}
+
+.high {
+    border-radius: 10px;
+    border-left: 10px solid rgb(223, 67, 67);
+}
+
+.medium {
+    border-radius: 10px;
+    border-left: 10px solid rgb(240, 185, 83);
+}
+
+.low {
+    border-radius: 10px;
+    border-left: 10px solid #1c8a06;
+}
 
 /* DARK MODE */

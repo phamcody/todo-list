@@ -1,10 +1,10 @@
 import addProjectDOM from "../ui-interface/addProjectDOM";
 
 export default function addProjectToLibrary(projects, project, containerForProjects) {
-    if (project === "" || projects.includes(project)) return
+    if (project === "" || project in projects) return
     else {
-        projects.push(project);
-        console.log(projects);
+        let fixedProjectName = project.replace(/\s+/g, "");
+        projects[fixedProjectName] = [];
         addProjectDOM(containerForProjects, project, projects)
     }
-}
+};
