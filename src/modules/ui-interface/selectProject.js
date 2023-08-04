@@ -1,4 +1,5 @@
 import task from "./task";
+import localStorageUpdate from "./localStorageUpdate";
 
 
 export default function selectProject(projects) {
@@ -25,7 +26,7 @@ export default function selectProject(projects) {
                     projects['Today'].splice(index, 1);
                 }
             };
-
+            localStorageUpdate().updateLocalStorage(projects);
         })
     })
 }

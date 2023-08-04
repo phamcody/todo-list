@@ -1,5 +1,6 @@
 import addProjectToLibrary from "../todo-list/addProjectToLibrary";
 import selectProject from "./selectProject";
+import localStorageUpdate from "./localStorageUpdate";
 export default function addProjectFormDOM(bottomNavContainer, addProjectButton, projects, containerForProjects) {
 
     let projectFormContainer = document.createElement('div');
@@ -26,6 +27,7 @@ export default function addProjectFormDOM(bottomNavContainer, addProjectButton, 
         addProjectButton.removeAttribute('disabled');
         bottomNavContainer.removeChild(projectFormContainer);
         selectProject(projects);
+        localStorageUpdate().updateLocalStorage(projects);
     });
 
     

@@ -1,6 +1,6 @@
 import task from "./task";
+import localStorageUpdate from "./localStorageUpdate";
 export default function addProjectDOM(containerForProjects, project, projects) {
-
     let projectsContainer = document.createElement('div');
     projectsContainer.classList.add('projects-container');
     let projectName = document.createElement('button');
@@ -34,10 +34,7 @@ export default function addProjectDOM(containerForProjects, project, projects) {
             }
         };
         task().placeTasks(projects);
-
-
-
-        console.log(projects);
+        localStorageUpdate().updateLocalStorage(projects);
 
 
         containerForProjects.removeChild(projectsContainer);
@@ -51,6 +48,7 @@ export default function addProjectDOM(containerForProjects, project, projects) {
                 contentHeader.textContent = current.textContent;
                 task().placeTasks(projects);
             }
+            localStorageUpdate().updateLocalStorage(projects);
         }
     })
 }

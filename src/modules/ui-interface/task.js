@@ -1,3 +1,7 @@
+import addProjectDOM from "./addProjectDOM";
+import localStorageUpdate from "./localStorageUpdate";
+import selectProject from "./selectProject";
+
 export default function task(projects) {
     projects;
     return {
@@ -106,8 +110,6 @@ export default function task(projects) {
                 todo['date'] = dateName.value;
                 todo['project'] = selectedProjectFix;
                 let currentDate = new Date().toISOString().slice(0,10);
-                console.log(currentDate);
-                console.log(dateName.value);
 
                 if (selectedProjectFix === "All") {
                     projects['All'].push(todo);
@@ -146,7 +148,7 @@ export default function task(projects) {
                 console.log(projects);
                 task().removeForm();
                 task().placeTasks(projects);
-                
+                localStorageUpdate().updateLocalStorage(projects);
             });
         },
 
@@ -213,6 +215,7 @@ export default function task(projects) {
 
                 deleteButton.addEventListener('click', (e) => {
                     task().deleteTasks(e.target, projects)
+                    localStorageUpdate().updateLocalStorage(projects);
                 })
             };
             
@@ -223,7 +226,6 @@ export default function task(projects) {
             let taskName = e.parentNode.firstChild.textContent;
 
             for (let project in projects) {
-                console.log(project);
                 let index = projects[project].findIndex(item => item['task'] === taskName);
                 if (index === -1) {
                     console.log("N/A");
@@ -231,11 +233,23 @@ export default function task(projects) {
                 else {
                     projects[project].splice(index, 1);
                 }
-                console.log(index);
             }
             bottomContentContainer.removeChild(e.parentNode.parentNode);
-            console.log(projects);
+            localStorageUpdate().updateLocalStorage(projects);
         },
 
+
+        loadProjects(projects) {
+            for (let project in projects) {
+                if (project === 'All' || project === 'Today' || project == 'HighPriority') {
+                    console.log('skip');
+                }
+                else {
+                    let containerForProjects = document.querySelector('.container-for-projects');
+                    addProjectDOM(containerForProjects, project, projects);
+                    selectProject(projects);
+                }
+            }
+        }
     };
 }
